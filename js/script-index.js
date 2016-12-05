@@ -3,6 +3,15 @@ $(document).ready( function(){
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 	$('.icon-arrow-left-alt').hide();
+
+	// Pinta una noticia en el párrafo que está dentro del DIV callout-news.
+	function printNews(){
+		var noticia = $('#noticia');
+
+		noticia.append('NUEVAS RECETAS');
+	};
+	//Mandar llamar la función
+	printNews();
 });
 
 

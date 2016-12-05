@@ -21,7 +21,30 @@ $(document).ready( function(){
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
-}
+
+	//FORMA 1
+	/*
+	for (var i = 0; i < recipesArray.length; i++){
+		var recipe = recipesArray[i];
+		renderRecipe(recipe);
+	}	
+	*/
+
+	//FORMA 2 Mandar llamar el arreglo con each
+	/*_.each(recipesArray, renderRecipe);*/
+
+	var objectRecipe = _.where(recipesArray, {highlighted:true});
+	console.log(objectRecipe);
+
+	renderRecipe(objectRecipe);
+
+	/*$.each(recipesArray, function (ind, objectRecipe) { 
+	  console.log('¡Hola :'+objectRecipe+'!'); 
+	}); */
+
+	
+};
+
 
 /*
 * Función que se encarga de pintar UNA recetas que tenga 

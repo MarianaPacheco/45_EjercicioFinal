@@ -37,10 +37,13 @@ function renderHighlightedRecipes(recipesArray) {
 
 	//Búsqueda por propiedad highlighted
 	var objectRecipe = _.where(recipesArray, {highlighted:true});
-	console.log(objectRecipe);
+	_.each(objectRecipe, renderRecipe);
+	
+	//El código de comentado de la línea 43 a la 46 se usa con el codigo que empieza en la línea 61
+	/*console.log(objectRecipe);
 	for (i=0; i < objectRecipe.length; i++){ 
 		renderRecipe(objectRecipe);
-	}
+	}*/
 };
 
 
@@ -50,7 +53,9 @@ function renderHighlightedRecipes(recipesArray) {
 * Aqui se tiene que crear el HTML que esta en el 
 * archivo "templates/templates-recipe.html"
 */
-function renderRecipe(recipe) {
+
+//El código comentado de abajo se usa si se utiliza el for de arriba comentado de la línea 43 a la 46
+/*function renderRecipe(recipe) {
 	
 	
 		console.log('Voy a pintar la receta: ', recipe);
@@ -79,6 +84,44 @@ function renderRecipe(recipe) {
 
 		var img = $('<img/>');
 		img.attr('src', recipe[i].source.url);
+
+		vinculo.append(span1);
+		span1.append(span2);
+		span1.append(span3);
+		span3.append(span4);
+		span3.append(span5);
+		span5.append(span6);
+		vinculo.append(img);*/
+
+function renderRecipe(recipe) {
+	
+	
+		console.log('Voy a pintar la receta: ', recipe);
+		var vinculo = $('<a></a>');
+		vinculo.addClass('item-recipe');
+
+		var span1 = $('<span></span>');
+		span1.addClass('attribution');
+
+		var span2 = $('<span></span>');
+		span2.addClass('title-recipe');
+		span2.text(recipe.title);
+
+		var span3 = $('<span></span>');
+		span3.addClass('metadata-recipe');
+
+		var span4 = $('<span></span>');
+		span4.addClass('author-recipe');
+		span4.text(recipe.source.name);
+
+		var span5 = $('<span></span>');
+		span5.addClass('bookmarks-recipe');
+
+		var span6 = $('<span></span>');
+		span6.addClass('icon-bookmark'); 
+
+		var img = $('<img/>');
+		img.attr('src', "img/recipes/320x350/" + recipe.name + ".jpg");
 
 		vinculo.append(span1);
 		span1.append(span2);

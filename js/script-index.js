@@ -1,5 +1,4 @@
 
-
 $(document).ready( function(){
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
@@ -14,6 +13,8 @@ $(document).ready( function(){
 	};
 	//Mandar llamar la función
 	printNews();
+
+	renderActivities(activities);
 });
 
 
@@ -162,6 +163,12 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+
+	//Recorre el arreglo
+	_.each(activitiesArray, renderActivity);
+	//Oculta el div con clase wrapper-message
+	$('.wrapper-message').hide();
+
 }
 
 /*
